@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+import { format, addDays } from 'date-fns';
 
 // Todo item is the basic building block
 export class Todo {
@@ -27,7 +27,7 @@ export class Todo {
   }
 
   info() {
-    return `${this.title} | due ${format(this.dueDate, 'MM/dd/yyyy')} | ${this.tags}`;
+    return `${this.title} --- due ${format(this.dueDate, 'MM/dd')} --- ${this.tags}`;
   }
 
 }
@@ -35,16 +35,16 @@ export class Todo {
 
 // create a sample list of Todo items, for testing purposes
 export let list = [];
-list.push(new Todo('title01', 'Sample description 01', '05/08/2024', 'high', 'project1'));
-list.push(new Todo('title02', 'Sample description 02', '05/09/2024', 'med', 'project1'));
-list.push(new Todo('title03', 'Sample description 03', '05/08/2024', 'low', 'project1'));
-list.push(new Todo('title04', 'Sample description 04', '05/10/2024', 'high', 'project1'));
-list.push(new Todo('title05', 'Sample description 05', '05/19/2024', 'low', 'project2'));
-list.push(new Todo('title06', 'Sample description 06', '06/01/2024', 'high', 'project2'));
-list.push(new Todo('title07', 'Sample description 07', '05/11/2024', 'med', 'project2'));
-list.push(new Todo('title08', 'Sample description 08', '05/08/2024', 'low', 'project3'));
-list.push(new Todo('title09', 'Sample description 09', '06/20/2024', 'high', 'project3'));
-list.push(new Todo('title10', 'Sample description 10', '05/09/2024', 'med', 'project3'));
+list.push(new Todo('title01', 'Sample description 01', Date(), 'high', 'project1'));
+list.push(new Todo('title02', 'Sample description 02', addDays(Date(), 2), 'med', 'project1'));
+list.push(new Todo('title03', 'Sample description 03', Date(), 'low', 'project1'));
+list.push(new Todo('title04', 'Sample description 04', addDays(Date(), 5), 'high', 'project1'));
+list.push(new Todo('title05', 'Sample description 05', addDays(Date(), 10), 'low', 'project2'));
+list.push(new Todo('title06', 'Sample description 06', addDays(Date(), 4), 'high', 'project2'));
+list.push(new Todo('title07', 'Sample description 07', addDays(Date(), 20), 'med', 'project2'));
+list.push(new Todo('title08', 'Sample description 08', Date(), 'low', 'project3'));
+list.push(new Todo('title09', 'Sample description 09', addDays(Date(), 30), 'high', 'project3'));
+list.push(new Todo('title10', 'Sample description 10', addDays(Date(), 2), 'med', 'project3'));
 
 // add some tags
 list[0].addTag('#work');

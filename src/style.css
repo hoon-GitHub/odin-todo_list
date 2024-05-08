@@ -7,7 +7,10 @@
 :root {
   --light-gray: rgb(225, 225, 225);
   --dark-gray: rgb(80, 80, 80);
-  --blue-gray: rgb(75, 173, 195);
+  --blue-gray: rgb(75, 151, 195);
+  --red: #e26d5d;
+  --yellow: #eaea78;
+  --green: #98e667;
 }
 
 /* import Google font */
@@ -27,6 +30,8 @@ body {
   grid-template-columns: 35% 65%;
 }
 
+
+/* navigation panel on left */
 #nav {
   width: 100%;
   background-color: #a9b7c0;
@@ -48,18 +53,21 @@ body {
 }
 
 #nav button {
-  padding: 3px;
+  margin-bottom: 1px;
+  padding: 3px 10px;
   border: none;
   border-radius: 7px;
   background-color: #a9b7c0;
   color: var(--dark-gray);
+  filter: brightness(97%);
 }
 
 #nav button:hover {
-  filter: brightness(80%);
+  filter: brightness(90%);
 }
 
 
+/* content side on the right */
 #content {
   width: 100%;
   background-color: #d6dcdf;
@@ -75,26 +83,30 @@ body {
   margin-bottom: 5px;
   padding: 5px 30px;
   border-radius: 7px;
-  font-size: 0.8rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: #a9b7c0;
+  font-size: 0.8rem;
+
 }
 
 .todoItem:hover {
-  filter: brightness(50%);
+  filter: brightness(90%);
 }
 
 #addTodoBtn {
-  background-color: #c2c4c7;
+  margin-bottom: 5px;
   padding: 5px 30px;
   border: 0;
   border-radius: 7px;
-  color: var(--dark-gray);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: #a9b7c0;
+  color: var(--dark-gray);
 }
 
 #addTodoBtn:hover {
   filter: brightness(90%);
 }
+
 
 /* sticky footer */
 footer {

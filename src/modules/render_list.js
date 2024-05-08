@@ -1,7 +1,7 @@
 import { isBefore } from 'date-fns';
 
 const content = document.getElementById('content');
-let currentView = null;
+let currentView = "all";
 
 // clear #content
 export function clearContent() {
@@ -12,17 +12,25 @@ export function clearContent() {
 
 // main function: takes a list of Todo items and render in the #content
 export function renderList(list) {
-  currentView = "all";
   for (let i = 0; i < list.length; i++) {
     const todoDom = document.createElement('div');
     todoDom.classList.add('todoItem');
     todoDom.innerText = list[i].info();
+
+    // add color depending on priority
+    if (list[i].priority === "HIGH") todoDom.style.color = 'var(--red)';
+    else if (list[i].priority === "MED") todoDom.style.color = 'var(--yellow)';
+    else if (list[i].priority === "LOW") todoDom.style.color = 'var(--green)';
+    else break;
+
     content.appendChild(todoDom);
   }
+
+  // add a button for creating a new Todo item
   const addButton = document.createElement('button');
   addButton.id = 'addTodoBtn';
   addButton.innerText = '+';
-  content.appendChild(addButton); // a button for adding a new Todo to the list
+  content.appendChild(addButton);
 }
 
 // filter-by-project view

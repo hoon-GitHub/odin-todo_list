@@ -7,7 +7,7 @@ const nav = document.getElementById('nav');
 // set up the #nav
 export function renderNav() {
 
-  // attach event listeners to #all, #today, #thisWeek in #nav
+  // attach event listeners to #all, #today, #oneWeek in #nav
   const all = document.getElementById('all');
   all.addEventListener('click', () => {
     clearContent();
@@ -15,8 +15,8 @@ export function renderNav() {
   });
   const today = document.getElementById('today');
   today.addEventListener('click', () => renderByDue(list, Date()));
-  const thisWeek = document.getElementById('thisWeek');
-  thisWeek.addEventListener('click', () => renderByDue(list, addDays(Date(), 7)));
+  const oneWeek = document.getElementById('oneWeek');
+  oneWeek.addEventListener('click', () => renderByDue(list, addDays(Date(), 7)));
 
   // and then render projects
   renderProjects();
