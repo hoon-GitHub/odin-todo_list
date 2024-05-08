@@ -50,22 +50,27 @@ body {
 
 .todoItem {
   margin-bottom: 5px;
-  padding: 5px;
-  border: 1px solid var(--dark-gray);
+  padding: 5px 30px;
   border-radius: 7px;
   font-size: 0.8rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.todoItem:hover {
+  filter: brightness(50%);
 }
 
 #addTodoBtn {
-  background-color: #c5c2c7;
+  background-color: #c2c4c7;
   padding: 5px 30px;
-  border: 1px solid var(--dark-gray);
+  border: 0;
   border-radius: 7px;
   color: var(--dark-gray);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 #addTodoBtn:hover {
-  background-color: var(--light-gray);
+  filter: brightness(90%);
 }
 
 /* sticky footer */

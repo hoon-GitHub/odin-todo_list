@@ -13,10 +13,13 @@ Project finished on: **TBD**
 - Just like the previous TicTacToe project, I will try to work separately on the UI portion from the fully-functioning console version of the application. So work on backend first, then the frontend.
 - My goal is a simple and intuitive app, with a modern and minimalist design (look at community solutions for ideas/inspiration).
 
-### Mid-Project Thoughts
+### Mid-Project Thoughts/Progress
 - Took some time to brainstorm how to structure building blocks (todo items, projects, ...).
 - Decided to use CLASS for popularity, rather than regular constructor or factory function.
+- Debated if I should use tags for separating projects vs. make a project class to contain todos. Decided to go with a separate class.
 - Decided to keep classes simple (at least to start out with) - constructor, add, remove, print..
+- Later decided to remove the whole Project class, and instead add a property to Todo, to act similarly as tags (a major overhaul).
+- Maybe I should try adding some animations?
 - 
 
 ### Post-Project Remarks

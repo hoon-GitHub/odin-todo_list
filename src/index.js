@@ -1,10 +1,11 @@
 import './style.css';
-import { Project, sample } from './modules/project.js';
-import { renderProject } from './modules/render_project.js';
+import { sample } from './modules/todo.js';
+import { renderList, renderProject, renderByDue, renderByTag } from './modules/render_list.js';
 
 // initially render sample project by default
-renderProject(sample);
+renderList(sample);
+// renderByDue(Date());
+// renderByTag('work');
 
 // making the imports to be global for access from console, for testing
 window.sample = sample;
-window.Project = Project;
