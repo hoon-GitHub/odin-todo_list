@@ -7,6 +7,7 @@
 :root {
   --light-gray: rgb(225, 225, 225);
   --dark-gray: rgb(80, 80, 80);
+  --blue-gray: rgb(75, 173, 195);
 }
 
 /* import Google font */
@@ -34,12 +35,34 @@ body {
   align-items: flex-end;
   justify-content: center;
   padding: 10px;
+  color: var(--blue-gray);
+}
+
+#nav h2 {
+  margin-bottom: 20px;
+}
+
+#nav h4 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+#nav button {
+  padding: 3px;
+  border: none;
+  border-radius: 7px;
+  background-color: #a9b7c0;
   color: var(--dark-gray);
 }
 
+#nav button:hover {
+  filter: brightness(80%);
+}
+
+
 #content {
   width: 100%;
-  background-color: #c5c2c7;
+  background-color: #d6dcdf;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
