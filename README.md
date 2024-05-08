@@ -14,6 +14,9 @@ Project finished on: **TBD**
 - My goal is a simple and intuitive app, with a modern and minimalist design (look at community solutions for ideas/inspiration).
 
 ### Mid-Project Thoughts
+- Took some time to brainstorm how to structure building blocks (todo items, projects, ...).
+- Decided to use CLASS for popularity, rather than regular constructor or factory function.
+- Decided to keep classes simple (at least to start out with) - constructor, add, remove, print..
 - 
 
 ### Post-Project Remarks

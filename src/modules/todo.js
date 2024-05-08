@@ -1,9 +1,12 @@
+import { format } from 'date-fns';
+
 // Todo item is the basic building block
 export class Todo {
   
   constructor(title, description, dueDate, priority) {
     this.title = title;
     this.description = description;
+    this.entryDate = format(new Date(), 'MM-dd-yyyy');
     this.dueDate = dueDate;
     this.priority = priority.toUpperCase();
     this.completion = false;
@@ -23,7 +26,7 @@ export class Todo {
   }
 
   info() {
-    console.log(`${this.title} / ${this.dueDate} / ${this.priority} / ${this.tags}`);
+    return `${this.title} | ${this.entryDate} | ${this.dueDate} | ${this.priority} | ${this.tags}`;
   }
 
 }

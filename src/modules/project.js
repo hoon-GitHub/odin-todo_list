@@ -28,15 +28,15 @@ export class Project {
 // create a sample project for testing purpose
 export const sample = new Project('sample');
 
-sample.addTodo('title1', 'Sample description', 'sample dueDate', 'high');
-sample.addTodo('title2', 'Sample description', 'sample dueDate', 'med');
-sample.addTodo('title3', 'Sample description', 'sample dueDate', 'low');
-sample.addTodo('title4', 'Sample description', 'sample dueDate', 'high');
-sample.addTodo('title5', 'Sample description', 'sample dueDate', 'low');
-sample.addTodo('title6', 'Sample description', 'sample dueDate', 'high');
-sample.addTodo('title7', 'Sample description', 'sample dueDate', 'med');
-sample.addTodo('title8', 'Sample description', 'sample dueDate', 'low');
-sample.addTodo('title9', 'Sample description', 'sample dueDate', 'high');
+sample.addTodo('title01', 'Sample description', 'sample dueDate', 'high');
+sample.addTodo('title02', 'Sample description', 'sample dueDate', 'med');
+sample.addTodo('title03', 'Sample description', 'sample dueDate', 'low');
+sample.addTodo('title04', 'Sample description', 'sample dueDate', 'high');
+sample.addTodo('title05', 'Sample description', 'sample dueDate', 'low');
+sample.addTodo('title06', 'Sample description', 'sample dueDate', 'high');
+sample.addTodo('title07', 'Sample description', 'sample dueDate', 'med');
+sample.addTodo('title08', 'Sample description', 'sample dueDate', 'low');
+sample.addTodo('title09', 'Sample description', 'sample dueDate', 'high');
 sample.addTodo('title10', 'Sample description', 'sample dueDate', 'med');
 
 sample.tasks[0].addTag('work');
