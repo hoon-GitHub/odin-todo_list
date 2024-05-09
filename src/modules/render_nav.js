@@ -1,6 +1,6 @@
 import { addDays } from 'date-fns';
 import { list } from './todo.js';
-import { clearContent, renderList, renderProject, renderByDue } from './render_list.js';
+import { clearContent, renderList, renderAll, renderByDue, renderProject } from './render_list.js';
 
 const nav = document.getElementById('nav');
 
@@ -9,10 +9,7 @@ export function renderNav() {
 
   // attach event listeners to #all, #today, #oneWeek in #nav
   const all = document.getElementById('all');
-  all.addEventListener('click', () => {
-    clearContent();
-    renderList(list);
-  });
+  all.addEventListener('click', () => renderAll(list));
   const today = document.getElementById('today');
   today.addEventListener('click', () => renderByDue(list, Date()));
   const oneWeek = document.getElementById('oneWeek');

@@ -7,10 +7,12 @@
 :root {
   --light-gray: rgb(225, 225, 225);
   --dark-gray: rgb(80, 80, 80);
-  --blue-gray: rgb(75, 151, 195);
-  --red: #e26d5d;
-  --yellow: #eaea78;
-  --green: #98e667;
+  --blue-gray: rgb(88, 179, 231);
+  --nav-bg: #a9b7c0;
+  --content-bg: #d6dcdf;
+  --high: #e26d5d;
+  --med: #eaea78;
+  --low: #98e667;
 }
 
 /* import Google font */
@@ -34,7 +36,7 @@ body {
 /* navigation panel on left */
 #nav {
   width: 100%;
-  background-color: #a9b7c0;
+  background-color: var(--nav-bg);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -57,7 +59,7 @@ body {
   padding: 3px 10px;
   border: none;
   border-radius: 7px;
-  background-color: #a9b7c0;
+  background-color: var(--nav-bg);
   color: var(--dark-gray);
   filter: brightness(97%);
 }
@@ -70,7 +72,7 @@ body {
 /* content side on the right */
 #content {
   width: 100%;
-  background-color: #d6dcdf;
+  background-color: var(--content-bg);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -84,7 +86,7 @@ body {
   padding: 5px 30px;
   border-radius: 7px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  background-color: #a9b7c0;
+  background-color: var(--nav-bg);
   font-size: 0.8rem;
 
 }
@@ -99,11 +101,63 @@ body {
   border: 0;
   border-radius: 7px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  background-color: #a9b7c0;
+  background-color: var(--nav-bg);
   color: var(--dark-gray);
 }
 
 #addTodoBtn:hover {
+  filter: brightness(90%);
+}
+
+dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  transform: translate(-50%, -50%);
+  border: none;
+  border-radius: 7px;
+  background-color: var(--nav-bg);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+dialog form {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  justify-items: end;
+  gap: 10px;
+  padding: 20px;
+}
+
+dialog form label {
+  color: var(--dark-gray);
+}
+
+dialog form input,
+dialog form select {
+  width: 100%;
+  padding: 5px;
+  border-radius: 7px;
+  border: none;
+  background-color: var(--content-bg);
+}
+
+.dialogBtn {
+  grid-column: span 2;
+  justify-self: center;
+  margin-top: 20px;
+  padding: 5px 20px;
+  background-color: var(--light-gray);
+  border-radius: 7px;
+  border: none;
+  color: var(--dark-gray);
+}
+
+.dialogBtn:hover {
   filter: brightness(90%);
 }
 

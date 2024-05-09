@@ -14,12 +14,31 @@
       <button id="today">today</button>
       <button id="oneWeek">one week</button>
       <h4>projects:</h4>
-
+      <!-- list of projects to be rendered here -->
     </div>
     <div id="content">
-
+      <!-- current view of Todo list will be rendered here -->
     </div>
   </div>
+  <dialog>
+    <form>
+      <label for="titleInput">title</label>
+      <input id="titleInput" type="text">
+      <label for="descInput">description</label>
+      <input id="descInput" type="text">
+      <label for="dueInput">due</label>
+      <input id="dueInput" type="text">
+      <label for="priorityInput">priority</label>
+      <select id="priorityInput">
+        <option value="high">high</option>
+        <option value="med" selected="selected">med</option>
+        <option value="low">low</option>
+      </select>
+      <label for="projectInput">project</label>
+      <input id="projectInput" type="text">
+      <button class="dialogBtn" id="confirmBtn"></button>
+    </form>
+  </dialog>
   <footer>
     <p>Copyright © <a href="https://github.com/hoon-GitHub" target="_blank">
       hoon-GitHub<i class="fa-brands fa-github"></i></a></p>
