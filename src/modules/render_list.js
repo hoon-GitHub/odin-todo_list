@@ -13,7 +13,7 @@ export function clearContent() {
 
 // main function: takes a list of Todo items and render in the #content
 export function renderList(list) {
-  console.log(currentView);
+  
   for (let i = 0; i < list.length; i++) {
     const todoDom = document.createElement('div');
     todoDom.classList.add('todoItem');

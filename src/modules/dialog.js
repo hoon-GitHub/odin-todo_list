@@ -1,6 +1,9 @@
-import { isDate } from 'date-fns';
-import { currentView } from "./render_list";
+import { format } from 'date-fns';
+import { Todo, list } from './todo.js';
+import { currentView, renderAll, renderProject } from "./render_list";
+import { renderProjects } from "./render_nav.js";
 
+// get the DOM elements in the dialog
 const dialog = document.querySelector('dialog');
 const titleInput = document.getElementById('titleInput');
 const descInput = document.getElementById('descInput');
@@ -21,6 +24,27 @@ export function renderAddDialog() {
     projectInput.value = currentView;
   }
   confirmBtn.innerText = "Add";
+
+  // process the add
+  confirmBtn.onclick = (e) => {
+    e.preventDefault();
+    let newItem = new Todo(titleInput.value, descInput.value, dueInput.value, priorityInput.value, projectInput.value);
+    console.log(newItem);
+    list.push(newItem);
+
+    // refresh the #content - try to accomodate the current view
+    if (currentView == "all" || currentView == "date") {
+      renderAll(list);
+    } else {
+      renderProject(list, currentView);
+    }
+
+    // also refresh the project list in the #nav
+    renderProjects();
+    newItem = null;
+    dialog.close();
+  }
+
   dialog.showModal();
 }
 
@@ -28,13 +52,9 @@ export function renderAddDialog() {
 export function renderEditDialog(item) {
   titleInput.value = item.title;
   descInput.value = item.description;
-  dueInput.value = item.dueDate;
+  dueInput.value = format(item.dueDate, "MM/dd/yyyy");
   priorityInput.value = item.priority;
-  if (currentView == "all" || currentView == "date") {
-    projectInput.value = "";
-  } else {
-    projectInput.value = currentView;
-  }
+  projectInput.value = item.project;
   confirmBtn.innerText = "Save";
   dialog.showModal();
 }

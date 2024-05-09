@@ -23,4 +23,6 @@ Project finished on: **TBD**
 - 
 
 ### Post-Project Remarks
+- Using variables for colors (and maybe other things) in css, was very convenient and helpful!
+- Learned when to use `onclick` instead of `addEventListener('click')` - without caution EventListener can get added multiple times!
 - 

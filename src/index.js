@@ -5,3 +5,5 @@ import { list } from './modules/todo.js';
 
 renderNav();
 renderList(list);
+
+window.list = list;

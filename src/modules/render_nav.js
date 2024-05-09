@@ -1,6 +1,6 @@
 import { addDays } from 'date-fns';
 import { list } from './todo.js';
-import { clearContent, renderList, renderAll, renderByDue, renderProject } from './render_list.js';
+import { renderAll, renderByDue, renderProject } from './render_list.js';
 
 const nav = document.getElementById('nav');
 
@@ -20,12 +20,15 @@ export function renderNav() {
 }
 
 // render menu items in the #nav
-function renderProjects() {
+export function renderProjects() {
+
+  // clear the project list for a refresh
+  document.querySelectorAll('.projects').forEach(el => el.remove());
 
   // get all projects currently being used
   const projects = new Set();
   for (let i = 0; i < list.length; i++) {
-    projects.add(list[i].project);
+    if (list[i].project != "") projects.add(list[i].project);
   }
 
   // for each project, create button and append to #nav
