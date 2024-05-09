@@ -13,7 +13,7 @@ export function clearContent() {
 
 // main function: takes a list of Todo items and render in the #content
 export function renderList(list) {
-  
+
   for (let i = 0; i < list.length; i++) {
     const todoDom = document.createElement('div');
     todoDom.classList.add('todoItem');
@@ -23,7 +23,7 @@ export function renderList(list) {
     const editBtn = document.createElement('button');
     editBtn.classList.add('editBtn');
     editBtn.innerText = "edit";
-    editBtn.addEventListener('click', () => renderEditDialog(list[i]));
+    editBtn.onclick = () => renderEditDialog(list[i]);
     todoDom.appendChild(editBtn);
 
     // add color depending on priority
@@ -65,12 +65,5 @@ export function renderProject(list, project) {
   clearContent();
   currentView = project;
   list = list.filter(item => item.project === project);
-  renderList(list);
-}
-
-// filter-by-tag view
-export function renderByTag(list, tag) {
-  clearContent();
-  list = list.filter(item => item.tags.includes(tag));
   renderList(list);
 }

@@ -90,11 +90,6 @@ body {
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   background-color: var(--nav-bg);
   font-size: 0.8rem;
-
-}
-
-.todoItem:hover {
-  filter: brightness(90%);
 }
 
 .editBtn {

@@ -29,7 +29,6 @@ export function renderAddDialog() {
   confirmBtn.onclick = (e) => {
     e.preventDefault();
     let newItem = new Todo(titleInput.value, descInput.value, dueInput.value, priorityInput.value, projectInput.value);
-    console.log(newItem);
     list.push(newItem);
 
     // refresh the #content - try to accomodate the current view
@@ -56,5 +55,27 @@ export function renderEditDialog(item) {
   priorityInput.value = item.priority;
   projectInput.value = item.project;
   confirmBtn.innerText = "Save";
+
+  // save the edit
+  confirmBtn.onclick = (e) => {
+    e.preventDefault();
+    item.title = titleInput.value;
+    item.description = descInput.value;
+    item.dueDate = new Date(dueInput.value);
+    item.priority = priorityInput.value;
+    item.project = projectInput.value;
+
+    // refresh the #content - try to accomodate the current view
+    if (currentView == "all" || currentView == "date") {
+      renderAll(list);
+    } else {
+      renderProject(list, currentView);
+    }
+
+    // also refresh the project list in the #nav
+    renderProjects();
+    dialog.close();
+  }
+
   dialog.showModal();
 }

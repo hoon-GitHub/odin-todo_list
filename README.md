@@ -5,8 +5,8 @@ Project started on: **5/6/2024**\
 Project finished on: **TBD**
 
 ### Project Planning
-- Each todo item will be an object with properities (title, description, dueDate, priority, completion, tags, ...).
-- There will be multiple todo lists (projects): probably use tabbed-browsing? Maybe make them to be simply filtered lists using tags?
+- Each todo item will be an object with properities (title, description, dueDate, priority, completion, project, ...).
+- There will be multiple todo lists (projects): probably use tabbed-browsing? Maybe make them to be simply filtered list?
 - User should be able to add new item to the list and edit/delete an existing item.
 - I should use webpack, and try to learn to utilize some other npm libraries.
 - As instructed, I should use localStorage to store all data - I will be learning how to interact with JSON data!
@@ -16,13 +16,16 @@ Project finished on: **TBD**
 ### Mid-Project Thoughts/Progress
 - Took some time to brainstorm how to structure building blocks (todo items, projects, ...).
 - Decided to use CLASS for popularity, rather than regular constructor or factory function.
-- Debated if I should use tags for separating projects vs. make a project class to contain todos. Decided to go with a separate class.
+- Debated if I should add project property to Todo vs. make a separate class to contain a list of Todo items. Decided to go with a separate class.
 - Decided to keep classes simple (at least to start out with) - constructor, add, remove, print..
-- Later decided to remove the whole Project class, and instead add a property to Todo, to act similarly as tags (a major overhaul).
+- Later decided to remove the whole Project class, and instead add a property to Todo, to act similarly as tags (was a fairly major overhaul).
+- Also decided to get rid of tags. Project property will act as a tag, although not 100% identical.
 - Maybe I should try adding some animations?
-- 
+- Data entry validation will need to be implemented, especially for the `dueDate` and making the `title` field required.
+- Toggling the completion status will need to be also added.
 
 ### Post-Project Remarks
 - Using variables for colors (and maybe other things) in css, was very convenient and helpful!
 - Learned when to use `onclick` instead of `addEventListener('click')` - without caution EventListener can get added multiple times!
+- Assignment instruction was asking to separate app logics (backend) from DOM-related stuff (frontend). I tried doing that but it feels like some frontend modules contain SOME app logics? Would it be possible to fully separate front and back?
 - 

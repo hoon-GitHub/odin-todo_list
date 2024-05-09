@@ -6,4 +6,5 @@ import { list } from './modules/todo.js';
 renderNav();
 renderList(list);
 
+// make list global for console access, for testing/debugging
 window.list = list;
