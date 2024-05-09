@@ -95,6 +95,21 @@ body {
   filter: brightness(90%);
 }
 
+.editBtn {
+  margin-left: 20px;
+  padding: 3px;
+  border: none;
+  border-radius: 7px;
+  background-color: var(--nav-bg);
+  filter: brightness(110%);
+  font-size: 0.8rem;
+  color: var(--dark-gray);
+}
+
+.editBtn:hover {
+  filter: brightness(120%);
+}
+
 #addTodoBtn {
   margin-bottom: 5px;
   padding: 5px 30px;

@@ -8,7 +8,7 @@ export class Todo {
     this.description = description;
     // this.entryDate = format(new Date(), 'MM-dd-yyyy');
     this.dueDate = dueDate;
-    this.priority = priority.toUpperCase();
+    this.priority = priority.toLowerCase();
     this.project = project;
     this.tags = [];
     this.completion = false;
