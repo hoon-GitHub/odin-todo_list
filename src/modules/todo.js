@@ -9,7 +9,7 @@ export class Todo {
     this.dueDate = dueDate;
     this.priority = priority.toLowerCase();
     this.project = project;
-    this.completion = false;
+    this.completed = false;
   }
 
   info() {
@@ -30,3 +30,7 @@ list.push(new Todo('title07', 'Sample description 07', addDays(Date(), 20), 'med
 list.push(new Todo('title08', 'Sample description 08', Date(), 'low', 'project3'));
 list.push(new Todo('title09', 'Sample description 09', addDays(Date(), 30), 'high', 'project3'));
 list.push(new Todo('title10', 'Sample description 10', addDays(Date(), 2), 'med', 'project3'));
+
+list[1].completed = true;
+list[3].completed = true;
+list[7].completed = true;

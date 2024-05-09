@@ -16,8 +16,24 @@ export function renderList(list) {
 
   for (let i = 0; i < list.length; i++) {
     const todoDom = document.createElement('div');
+    const infoDom = document.createElement('div');
     todoDom.classList.add('todoItem');
-    todoDom.innerText = list[i].info();
+    
+    // checkbox
+    const checkBox = document.createElement('i');
+    checkBox.classList.add('fa-solid');
+    if (list[i].completed) {
+      checkBox.classList.add('fa-square-check');
+      todoDom.appendChild(checkBox);
+      infoDom.style.setProperty("text-decoration", "line-through");
+    } else {
+      checkBox.classList.add('fa-square');
+      todoDom.appendChild(checkBox);
+    }
+
+    // main information
+    infoDom.innerText = list[i].info();
+    todoDom.appendChild(infoDom);
 
     // add an edit button for each Todo
     const editBtn = document.createElement('button');

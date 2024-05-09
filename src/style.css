@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: none;
 }
 
 :root {
@@ -84,12 +85,23 @@ body {
 }
 
 .todoItem {
+  display: flex;
   margin-bottom: 5px;
   padding: 5px 30px;
   border-radius: 7px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   background-color: var(--nav-bg);
   font-size: 0.8rem;
+}
+
+/* checkbox */
+.fa-solid {
+  align-self: center;
+  margin-right: 10px;
+}
+
+.fa-solid:hover {
+  filter: brightness(120%);
 }
 
 .editBtn {
@@ -160,6 +172,13 @@ dialog form select {
   border-radius: 7px;
   border: none;
   background-color: var(--content-bg);
+  font-family: "Poppins", sans-serif;
+}
+
+dialog form input:focus,
+dialog form textarea:focus,
+dialog form select:focus {
+  filter: brightness(120%);
 }
 
 #dialogBtnDiv {
