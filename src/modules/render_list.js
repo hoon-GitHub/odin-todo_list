@@ -59,9 +59,9 @@ export function renderList(list) {
     todoDom.appendChild(editBtn);
 
     // add color depending on priority
-    if (list[i].priority === "high") todoDom.style.color = 'var(--high)';
-    else if (list[i].priority === "med") todoDom.style.color = 'var(--med)';
-    else if (list[i].priority === "low") todoDom.style.color = 'var(--low)';
+    if (list[i].priority === "high") checkBox.style.color = 'var(--high)';
+    else if (list[i].priority === "med") checkBox.style.color = 'var(--med)';
+    else if (list[i].priority === "low") checkBox.style.color = 'var(--low)';
 
     content.appendChild(todoDom);
   }
