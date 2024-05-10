@@ -31,6 +31,22 @@ export function renderList(list) {
       todoDom.appendChild(checkBox);
     }
 
+    // checkbox click - toggle completed
+    checkBox.onclick = () => {
+      if (list[i].completed) {
+        list[i].completed = false;
+        checkBox.classList.remove('fa-square-check');
+        checkBox.classList.add('fa-square');
+        infoDom.style.setProperty("text-decoration", "none");
+      }
+      else {
+        list[i].completed = true;
+        checkBox.classList.remove('fa-square');
+        checkBox.classList.add('fa-square-check');
+        infoDom.style.setProperty("text-decoration", "line-through");
+      }
+    }
+
     // main information
     infoDom.innerText = list[i].info();
     todoDom.appendChild(infoDom);
