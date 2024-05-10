@@ -12,6 +12,7 @@ const dueInput = document.getElementById('dueInput');
 const priorityInput = document.getElementById('priorityInput');
 const projectInput = document.getElementById('projectInput');
 const confirmBtn = document.getElementById('confirmBtn');
+const cancelBtn = document.getElementById('cancelBtn');
 
 // show the modal dialog with an add button, with current project auto-populated
 export function renderAddDialog() {
@@ -25,6 +26,9 @@ export function renderAddDialog() {
     projectInput.value = currentView;
   }
   confirmBtn.innerText = "Add";
+
+  cancelBtn.innerText = "Cancel";
+  cancelBtn.onclick = dialog.close();
 
   // delete button is not applicable here!
   if (document.getElementById('deleteBtn')) document.getElementById('deleteBtn').remove();
@@ -59,6 +63,9 @@ export function renderEditDialog(item) {
   priorityInput.value = item.priority;
   projectInput.value = item.project;
   confirmBtn.innerText = "Save";
+
+  cancelBtn.innerText = "Cancel";
+  cancelBtn.onclick = dialog.close();
 
   // add a delete button, if not there already
   if (!document.getElementById('deleteBtn')) {
