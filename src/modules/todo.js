@@ -18,8 +18,11 @@ export class Todo {
 
 }
 
-// sample list of Todo items, a main global placeholder
+// a main global holder of Todo items
 export let list = [];
+
+/*
+// create a sample list for testing
 list.push(new Todo('title01', 'Sample description 01', Date(), 'high', 'project1'));
 list.push(new Todo('title02', 'Sample description 02', addDays(Date(), 2), 'med', 'project1'));
 list.push(new Todo('title03', 'Sample description 03', Date(), 'low', 'project1'));
@@ -34,3 +37,4 @@ list.push(new Todo('title10', 'Sample description 10', addDays(Date(), 2), 'med'
 list[1].completed = true;
 list[3].completed = true;
 list[7].completed = true;
+*/
