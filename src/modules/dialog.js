@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+import { format, isValid } from 'date-fns';
 import { Todo, list } from './todo.js';
 import { currentView, renderAll, renderProject } from "./render_list";
 import { renderProjects } from "./render_nav.js";
@@ -32,11 +32,17 @@ export function renderAddDialog() {
     e.preventDefault();
     titleInput.style.border = "none"; // reset title validation indicator
     titleInput.placehloder = "";
+    dueInput.style.border = "none"; // reset dueDate validation indicator
+    dueInput.placehloder = "";
 
-    // title is required
+    // validate title and date before proceeding to add
     if (titleInput.value == "") {
       titleInput.style.border = "2px solid red";
-      titleInput.placeholder = "Title is required"
+      titleInput.placeholder = "Title is required";
+    } else if (!isValid(dueInput.value)) {
+      dueInput.style.border = "2px solid red";
+      dueInput.placeholder = "Invalid date - please try again";
+      dueInput.value = "";
     } else {
       let newItem = new Todo(titleInput.value, descInput.value, dueInput.value, priorityInput.value, projectInput.value);
       list.push(newItem);
@@ -79,11 +85,17 @@ export function renderEditDialog(item) {
     e.preventDefault();
     titleInput.style.border = "none"; // reset title validation indicator
     titleInput.placeholder = "";
+    dueInput.style.border = "none"; // reset dueDate validation indicator
+    dueInput.placehloder = "";
 
-    // title is required
+    // validate title and date before proceeding to saving the edit
     if (titleInput.value == "") {
       titleInput.style.border = "2px solid red";
       titleInput.placeholder = "Title is required"
+    } else if (!isValid(dueInput.value)) {
+      dueInput.style.border = "2px solid red";
+      dueInput.placeholder = "Invalid date - please try again";
+      dueInput.value = "";
     } else {
       item.title = titleInput.value;
       item.description = descInput.value;

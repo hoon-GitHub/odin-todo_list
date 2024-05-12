@@ -47,7 +47,7 @@ export function renderList(list) {
       }
     }
 
-    // main information
+    // info of each Todo item
     infoDom.innerText = list[i].info();
     todoDom.appendChild(infoDom);
 
