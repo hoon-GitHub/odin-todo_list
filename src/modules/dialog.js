@@ -130,8 +130,8 @@ export function renderEditDialog(item) {
   cancelBtn.onclick = dialog.close();
 
   // add a delete button, if not there already
+  const deleteBtn = document.createElement('button');
   if (!document.getElementById('deleteBtn')) {
-    const deleteBtn = document.createElement('button');
     deleteBtn.classList.add('dialogBtn');
     deleteBtn.id = 'deleteBtn';
     deleteBtn.innerText = "Delete";
@@ -141,12 +141,10 @@ export function renderEditDialog(item) {
   // delete the item when clicked
   deleteBtn.onclick = (e) => {
     e.preventDefault();
-    let index = null;
 
     // find the index using title and remove item
     for (let i = 0; i < list.length; i++) {
       if (list[i] === item) {
-        index = i;
         list.splice(i, 1);
       }
     }
