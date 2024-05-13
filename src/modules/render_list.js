@@ -45,6 +45,7 @@ export function renderList(list) {
         checkBox.classList.add('fa-square-check');
         infoDom.style.setProperty("text-decoration", "line-through");
       }
+      localStorage.setItem("hoonTodoList", JSON.stringify(list));
     }
 
     // info of each Todo item

@@ -1,7 +1,8 @@
 import { format, isValid } from 'date-fns';
-import { Todo, list } from './todo.js';
+import { Todo } from './todo.js';
 import { currentView, renderAll, renderProject } from "./render_list";
 import { renderProjects } from "./render_nav.js";
+import { list } from '../index.js';
 
 // get the DOM elements in the dialog
 const dialog = document.querySelector('dialog');
@@ -27,19 +28,21 @@ export function renderAddDialog() {
   }
   confirmBtn.innerText = "Add";
 
+  titleInput.style.border = "none"; // reset title validation indicator
+  titleInput.placehloder = "";
+  dueInput.style.border = "none"; // reset dueDate validation indicator
+  dueInput.placehloder = "";
+
   // process the add
   confirmBtn.onclick = (e) => {
     e.preventDefault();
-    titleInput.style.border = "none"; // reset title validation indicator
-    titleInput.placehloder = "";
-    dueInput.style.border = "none"; // reset dueDate validation indicator
-    dueInput.placehloder = "";
 
+    console.log(isValid(dueInput.value));
     // validate title and date before proceeding to add
     if (titleInput.value == "") {
       titleInput.style.border = "2px solid red";
       titleInput.placeholder = "Title is required";
-    } else if (!isValid(dueInput.value)) {
+    } else if (!isValid(new Date(dueInput.value))) {
       dueInput.style.border = "2px solid red";
       dueInput.placeholder = "Invalid date - please try again";
       dueInput.value = "";
@@ -58,6 +61,9 @@ export function renderAddDialog() {
       renderProjects();
       newItem = null;
       dialog.close();
+
+      // and finally save it to localStorage
+      localStorage.setItem("hoonTodoList", JSON.stringify(list));
     }
   }
 
@@ -75,31 +81,32 @@ export function renderAddDialog() {
 export function renderEditDialog(item) {
   titleInput.value = item.title;
   descInput.value = item.description;
-  dueInput.value = format(item.dueDate, "MM/dd/yyyy");
+  dueInput.value = item.dueDate;
   priorityInput.value = item.priority;
   projectInput.value = item.project;
   confirmBtn.innerText = "Save";
 
+  titleInput.style.border = "none"; // reset title validation indicator
+  titleInput.placeholder = "";
+  dueInput.style.border = "none"; // reset dueDate validation indicator
+  dueInput.placehloder = "";
+
   // save the edit
   confirmBtn.onclick = (e) => {
     e.preventDefault();
-    titleInput.style.border = "none"; // reset title validation indicator
-    titleInput.placeholder = "";
-    dueInput.style.border = "none"; // reset dueDate validation indicator
-    dueInput.placehloder = "";
 
     // validate title and date before proceeding to saving the edit
     if (titleInput.value == "") {
       titleInput.style.border = "2px solid red";
       titleInput.placeholder = "Title is required"
-    } else if (!isValid(dueInput.value)) {
+    } else if (!isValid(new Date(dueInput.value))) {
       dueInput.style.border = "2px solid red";
       dueInput.placeholder = "Invalid date - please try again";
       dueInput.value = "";
     } else {
       item.title = titleInput.value;
       item.description = descInput.value;
-      item.dueDate = dueInput.value;
+      item.dueDate = format(new Date(dueInput.value), "MM/dd/yyyy");
       item.priority = priorityInput.value;
       item.project = projectInput.value;
 
@@ -113,6 +120,9 @@ export function renderEditDialog(item) {
       // also refresh the project list in the #nav
       renderProjects();
       dialog.close();
+
+      // and finally save it to localStorage
+      localStorage.setItem("hoonTodoList", JSON.stringify(list));
     }
   }
 
@@ -153,6 +163,9 @@ export function renderEditDialog(item) {
     // reload the project list in #nav
     renderProjects();
     dialog.close();
+
+    // and finally save it to localStorage
+    localStorage.setItem("hoonTodoList", JSON.stringify(list));
   }
 
   dialog.showModal();

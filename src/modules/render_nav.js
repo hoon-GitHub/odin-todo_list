@@ -1,6 +1,6 @@
 import { addDays } from 'date-fns';
-import { list } from './todo.js';
 import { renderAll, renderByDue, renderProject } from './render_list.js';
+import { list } from '../index.js';
 
 const nav = document.getElementById('nav');
 
