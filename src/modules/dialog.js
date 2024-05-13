@@ -37,7 +37,6 @@ export function renderAddDialog() {
   confirmBtn.onclick = (e) => {
     e.preventDefault();
 
-    console.log(isValid(dueInput.value));
     // validate title and date before proceeding to add
     if (titleInput.value == "") {
       titleInput.style.border = "2px solid red";
@@ -148,7 +147,6 @@ export function renderEditDialog(item) {
     for (let i = 0; i < list.length; i++) {
       if (list[i] === item) {
         index = i;
-        console.log(i);
         list.splice(i, 1);
       }
     }

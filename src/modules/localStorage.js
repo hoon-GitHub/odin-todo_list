@@ -11,11 +11,11 @@ export function loadLocalStorage() {
     for (let i = 0; i < temp.length; i++) { // generate Todo item and load onto list[]
       list.push(new Todo(temp[i].title, temp[i].description, temp[i].dueDate, temp[i].priority, temp[i].project, temp[i].completed));
     }
-    console.warn("Data in localStorage found. Loading the current data from the localStorage..");
+    console.info("Data in localStorage found. Loading the current data from the localStorage..");
   } else {
     // if not, save the provided sample list to the localStorage
     localStorage.setItem("hoonTodoList", JSON.stringify(list));
-    console.warn("No data exist in your localStorage. Sample data is saved to localStorage.")
+    console.info("No data exist in your localStorage. Sample data is saved to localStorage.")
   }
 
 }
